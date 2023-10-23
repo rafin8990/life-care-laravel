@@ -32,3 +32,10 @@ Route::post('/register-user', [UserController::class, 'registerUser'])->name('re
 Route::get('/dashboard', [UserController::class, 'dashboard'])->middleware('isLoggedIn');
 
 Route::get('/logout', [UserController::class, "logout"]);
+
+
+Route::delete('/deleteUser/{id}', [UserController::class, 'deleteUser' ])->name('deleteUser');
+
+Route::get('/analytics', function () {
+    return view('dashboard/analytics');
+});
