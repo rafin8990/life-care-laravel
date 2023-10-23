@@ -54,3 +54,16 @@ Route::get('/add-product', function () {
 // Route::get('/all-products', function () {
 //     return view('dashboard/products/index');
 // });
+
+
+
+Route::post('/products', [ProductController::class, 'store'])->name('products');
+Route::get('/all-products', [ProductController::class, 'index'])->name('all-products');
+
+// Route::delete('/products/{product}', 'ProductController@destroy')->name('products.destroy');
+Route::delete('/products/{product}', [ProductController::class, 'destroy'])->name('products.destroy');
+
+
+
+Route::get('/products', [ProductController::class, 'index']);
+Route::get('/product/{id}', [ProductController::class, 'showProductDetails'])->name('product.details');
