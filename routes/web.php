@@ -21,3 +21,14 @@ Route::get('/shop', [ProductController::class,'shop'])->name('shop');
 Route::get('/doctors', [HomeController::class,'doctors'])->name('doctors');
 Route::get('/departments', [HomeController::class,'departments'])->name('departments');
 Route::get('/about', [HomeController::class,'about'])->name('about');
+
+
+Route::get('/login', [UserController::class, 'login'])->Middleware('alreadyLoggedIn');
+Route::post('/login-user',[UserController::class, 'loginUser'])->name('login-user');
+
+Route::get('/register', [UserController::class, 'register'])->Middleware('alreadyLoggedIn');
+Route::post('/register-user', [UserController::class, 'registerUser'])->name('register-user');
+
+Route::get('/dashboard', [UserController::class, 'dashboard'])->middleware('isLoggedIn');
+
+Route::get('/logout', [UserController::class, "logout"]);
