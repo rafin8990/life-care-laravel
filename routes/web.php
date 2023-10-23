@@ -39,3 +39,18 @@ Route::delete('/deleteUser/{id}', [UserController::class, 'deleteUser' ])->name(
 Route::get('/analytics', function () {
     return view('dashboard/analytics');
 });
+
+// Display the edit profile page
+Route::get('/edit-profile', [UserController::class, 'editProfile'])->name('editProfile');
+
+// Update the user profile
+Route::put('/update-profile', [UserController::class, 'updateProfile'])->name('updateProfile');
+
+
+
+Route::get('/add-product', function () {
+    return view('dashboard/addProduct');
+});
+// Route::get('/all-products', function () {
+//     return view('dashboard/products/index');
+// });
